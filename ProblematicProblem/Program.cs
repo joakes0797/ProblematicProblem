@@ -56,22 +56,22 @@ namespace ProblematicProblem
 
         public static List<string> Activities { get; private set; }
 
-        private static string userName { get; set; }
-        private static int age { get; set; }
-        private static string randomActivity { get; set; }
+        private static string UserName { get; set; }
+        private static int Age { get; set; }
+        private static string RandomActivity { get; set; }
 
         private static void UnderAge()
         {
-            if (age < 21 && randomActivity == "Wine Tasting")
+            if (Age < 21 && RandomActivity == "Wine Tasting")
             {
-                Console.WriteLine($"Oh no! Looks like you are too young to do {randomActivity}");
-                Activities.Remove(randomActivity);
+                Console.WriteLine($"Oh no! Looks like you are too young to do {RandomActivity}");
+                Activities.Remove(RandomActivity);
                 Console.WriteLine();
             }
             else
             {
-                Console.WriteLine($"Ah, got it!  {userName}, your random activity is:  {randomActivity}");
-                Activities.Remove(randomActivity);
+                Console.WriteLine($"Ah, got it!  {UserName}, your random activity is:  {RandomActivity}");
+                Activities.Remove(RandomActivity);
                 Console.WriteLine();
             }
 
@@ -99,7 +99,7 @@ namespace ProblematicProblem
             Console.Write("We are going to need your information first! What is your name?  ");
             string userName = Console.ReadLine();
             Console.WriteLine();
-            Program.userName = userName;
+            Program.UserName = userName;
 
 
             bool userAge;
@@ -111,7 +111,7 @@ namespace ProblematicProblem
 
             } while (!userAge);
             Console.WriteLine();
-            Program.age = age;
+            Program.Age = age;
 
 
             var answer2 = Decision(question2);   //"Would you like to see the current list of activities?  yes/no: "
@@ -162,7 +162,7 @@ namespace ProblematicProblem
 
 
             DisplayRandom();                   // "Choosing your random activity..."
-            Program.randomActivity = Activities[new Random().Next(Activities.Count)];
+            Program.RandomActivity = Activities[new Random().Next(Activities.Count)];
             UnderAge();             //checks for under 21 && "Wine Tasting"
 
             differentActivity:
@@ -172,7 +172,7 @@ namespace ProblematicProblem
             if (answer5)
             {
                 DisplayRandom();
-                Program.randomActivity = Activities[new Random().Next(Activities.Count)];
+                Program.RandomActivity = Activities[new Random().Next(Activities.Count)];
                 UnderAge();
                 if (Activities.Count >= 1)
                 {
